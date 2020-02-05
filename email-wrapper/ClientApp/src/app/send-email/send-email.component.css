@@ -1,0 +1,33 @@
+.email-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.email-form--left,
+.email-form--right {
+  height: 600px;
+}
+.email-form--right {
+  margin-left: 5%;
+}
+.email-form--right > textarea {
+  height: 600px;
+}
+
+.email-form--buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+.email-form--button {
+  width: 150px;
+}
+
+.ng-valid[required],
+.ng-valid.required {
+  border-left: 5px solid #42a948; /* green */
+}
+
+.ng-invalid:not(form) {
+  border-left: 5px solid #a94442; /* red */
+}

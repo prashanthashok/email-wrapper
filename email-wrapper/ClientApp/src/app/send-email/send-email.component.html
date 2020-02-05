@@ -1,0 +1,118 @@
+<div class="container-fluid">
+  <div
+    *ngIf="emailResponse"
+    [ngClass]="
+      emailResponse.isEmailSent
+        ? ['alert', 'alert-success']
+        : ['alert', 'alert-danger']
+    "
+    role="alert"
+  >
+    {{ emailResponse.message }}
+  </div>
+  <form class="email-form" #emailForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="email-form--left">
+      <div class="form-group">
+        <label for="to_name">Recipient Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="to_name"
+          id="to_name"
+          required
+          aria-required="true"
+          [(ngModel)]="emailRequest.to_name"
+          #to_name="ngModel"
+        />
+      </div>
+      <div class="form-group">
+        <label for="to">Recipient Email Address</label>
+        <input
+          type="email"
+          class="form-control"
+          name="to"
+          id="to"
+          required
+          email
+          aria-required="true"
+          [(ngModel)]="emailRequest.to"
+          #to="ngModel"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="from_name">Sender Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="from_name"
+          id="from_name"
+          required
+          aria-required="true"
+          [(ngModel)]="emailRequest.from_name"
+          #from_name="ngModel"
+        />
+      </div>
+      <div class="form-group">
+        <label for="from_email">Sender Email Address</label>
+        <input
+          type="email"
+          class="form-control"
+          name="from_email"
+          id="from_email"
+          required
+          email
+          aria-required="true"
+          [(ngModel)]="emailRequest.from"
+          #from="ngModel"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input
+          type="text"
+          class="form-control"
+          name="subject"
+          id="subject"
+          required
+          aria-required="true"
+          [(ngModel)]="emailRequest.subject"
+          #subject="ngModel"
+        />
+      </div>
+    </div>
+    <div class="email-form--right">
+      <div class="form-group">
+        <label for="subject">Body</label>
+
+        <textarea
+          class="form-control"
+          name="body"
+          id="body"
+          cols="30"
+          rows="10"
+          required
+          [(ngModel)]="emailRequest.body"
+          #body="ngModel"
+        ></textarea>
+      </div>
+      <div class="email-form--buttons form-group">
+        <button
+          type="submit"
+          class="btn btn-warning email-form--button"
+          [disabled]="!emailForm.form.valid"
+        >
+          Send Email
+        </button>
+        <button
+          type="button"
+          class="btn btn-default btn-primary email-form--button"
+          (click)="emailForm.reset(); reset()"
+        >
+          Reset
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
