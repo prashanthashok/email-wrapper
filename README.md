@@ -34,7 +34,7 @@
 		- Once the node_modules have been installed, run 'npm start' to build the app
 		- Once the build completes, navigate to http://localhost:4200/ to check if the UI runs separately without any issues
 ### Technologies used
-	The reason for choosing this particular framework setup is due to my familiarity with them the
+	The reason for choosing this particular framework setup is due to my familiarity with them
 	* C# .Net Core for the back-end
 	* Angular for the front-end
 		- UI contains a simple form to send email
