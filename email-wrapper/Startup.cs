@@ -27,8 +27,8 @@ namespace email_wrapper
         {
             services.Configure<AppConfiguration>(Configuration.GetSection("AppConfiguration"));
             services.AddScoped<IEmailHelperRepository, EmailHelperRepository>();
-            services.AddSingleton<SendGridHelper>();
-            services.AddSingleton<MailGunHelper>();
+            services.AddScoped<SendGridHelper>();
+            services.AddScoped<MailGunHelper>();
 
             services.AddTransient<Func<EmailProviderEnum, IEmailHelper>>(serviceProvider => key =>
             {
